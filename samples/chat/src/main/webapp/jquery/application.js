@@ -11,7 +11,7 @@ $(function () {
     var logged = false;
     var socket = $.atmosphere;
     var subSocket;
-    var transport = 'websocket';
+    var transport = 'streaming';
 
     <!-- The following code is just here for demonstration purpose and not required -->
     <!-- Used to demonstrate the request.onTransportFailure callback. Not mandatory -->
@@ -97,6 +97,7 @@ $(function () {
     };
 
     request.onMessage = function (response) {
+        alert("incoming message:" + response.responseBody);
 
         // We need to be logged first.
         if (!myName) return;
